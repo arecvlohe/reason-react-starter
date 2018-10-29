@@ -32,13 +32,10 @@ let make = _children => {
     <div className=Styles.container>
       <div className=Styles.card>
         <h1 className={Styles.header("222")}>
-          {"Reason React!" |> ReasonReact.string}
+          "Reason React!"->ReasonReact.string
         </h1>
         <p className=Styles.content>
-          {
-            {j|Type safe styles in Reason React FTW! 😎|j}
-            |> ReasonReact.string
-          }
+          {j|Type safe styles in Reason React FTW! 😎|j}->ReasonReact.string
         </p>
       </div>
     </div>,
