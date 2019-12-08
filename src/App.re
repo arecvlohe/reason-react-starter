@@ -10,11 +10,13 @@ module Styles = {
       border(px(1), solid, hex("eee")),
       borderRadius(px(3)),
       boxShadow(
-        ~x=px(0),
-        ~y=px(0),
-        ~blur=px(2),
-        ~spread=px(2),
-        hex("eee"),
+        Shadow.box(
+          ~x=px(0),
+          ~y=px(0),
+          ~blur=px(2),
+          ~spread=px(2),
+          hex("eee"),
+        ),
       ),
     ]);
 
@@ -22,16 +24,20 @@ module Styles = {
   let content = style([color(hex("222"))]);
 };
 
+type data = {message: string};
+
 /* Make the component */
 [@react.component]
-let make = () => {
+let make = (~data) => {
+  let {message} = data;
   <div className=Styles.container>
     <div className=Styles.card>
       <h1 className={Styles.header("222")}>
         "Reason React!"->ReasonReact.string
       </h1>
       <p className=Styles.content>
-        {j|Type safe styles in Reason React FTW! 😎|j}->ReasonReact.string
+        {j|Type safe styles in Reason React FTW! $message 😎|j}
+        ->ReasonReact.string
       </p>
     </div>
   </div>;
