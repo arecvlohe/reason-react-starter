@@ -24,20 +24,16 @@ module Styles = {
   let content = style([color(hex("222"))]);
 };
 
-type data = {message: string};
-
 /* Make the component */
 [@react.component]
-let make = (~data) => {
-  let {message} = data;
+let make = () => {
   <div className=Styles.container>
     <div className=Styles.card>
       <h1 className={Styles.header("222")}>
         "Reason React!"->ReasonReact.string
       </h1>
       <p className=Styles.content>
-        {j|Type safe styles in Reason React FTW! $message 😎|j}
-        ->ReasonReact.string
+        {j|Type safe styles in Reason React FTW!  😎|j}->ReasonReact.string
       </p>
     </div>
   </div>;
